@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "334219983132",
+    "project_id": "plantsnap12333",
+    "storage_bucket": "plantsnap12333.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334219983132:android:caf6750c675e660eaaa2d9",
+        "android_client_info": {
+          "package_name": "com.ariact.plant_snap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXIAwnfNXlRfY0E6wQTcEU1oz5C6mdHiA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
