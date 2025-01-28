@@ -24,9 +24,9 @@ class PlantIdentifierApp extends StatelessWidget {
   final PlantIdentificationService plantService;
 
   const PlantIdentifierApp({
-    Key? key,
+    super.key,
     required this.plantService,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

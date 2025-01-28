@@ -23,7 +23,7 @@ class PlantModel {
       description: json['description'] ?? 'No description available',
       careInstructions: List<String>.from(json['careInstructions'] ?? []),
       imageUrl: json['imageUrl'] ?? '',
-      plantFamily: json['plantFamily'],
+      plantFamily: json['plantFamily'] ?? '',
     );
   }
 

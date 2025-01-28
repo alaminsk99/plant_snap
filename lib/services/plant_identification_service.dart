@@ -105,15 +105,14 @@ class PlantIdentificationService {
       final responseBody = jsonDecode(response.body);
       final plantText = _extractPlantText(responseBody);
 
-      debugPrint(responseBody.toString());
-
       return PlantModel(
         name: _extractDetail(plantText, 'Common Name') ?? 'Unknown Plant',
         scientificName: _extractDetail(plantText, 'Scientific Name') ?? 'N/A',
         description: _extractDetail(plantText, 'Description') ?? 'No description available',
         careInstructions: _extractCareInstructions(plantText),
         imageUrl: '',
-        plantFamily: _extractDetail(plantText, 'Plant Family'),
+        // Make sure plantFamily can be null
+        plantFamily: _extractDetail(plantText, 'Plant Family') ?? 'Unknown Family',
       );
     } catch (e) {
       _logError('Failed to parse response', e);

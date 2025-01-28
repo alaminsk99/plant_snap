@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import '../models/plant_model.dart';
 
 class PlantDetailsScreen extends StatelessWidget {
@@ -11,10 +10,10 @@ class PlantDetailsScreen extends StatelessWidget {
   final String originalImagePath;
 
   const PlantDetailsScreen({
-    Key? key,
+    super.key,
     required this.plant,
     required this.originalImagePath
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -52,15 +51,17 @@ class PlantDetailsScreen extends StatelessWidget {
                   _buildSectionTitle('Care Instructions'),
                   ..._buildCareInstructionList(),
                   const SizedBox(height: 16),
-                  _buildSectionTitle('Plant Family'),
-                  Text(
-                    plant.plantFamily!.replaceAll("*", ""),
-                    style: GoogleFonts.roboto(
-                      fontSize: 16,
-                      fontStyle: FontStyle.italic,
-                      color: Colors.green.shade600,
+                  if (plant.plantFamily != null) ...[
+                    _buildSectionTitle('Plant Family'),
+                    Text(
+                      plant.plantFamily!.replaceAll("*", ""),
+                      style: GoogleFonts.roboto(
+                        fontSize: 16,
+                        fontStyle: FontStyle.italic,
+                        color: Colors.green.shade600,
+                      ),
                     ),
-                  ),
+                  ],
                 ],
               ),
             ),
@@ -76,6 +77,9 @@ class PlantDetailsScreen extends StatelessWidget {
       expandedHeight: 300.0,
       floating: false,
       pinned: true,
+      iconTheme: const IconThemeData(
+        color: Colors.white,
+      ),
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
           plant.name.replaceAll("*", ''),
@@ -87,7 +91,7 @@ class PlantDetailsScreen extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         background: Hero(
-          tag: 'plant_image_${plant.name.replaceAll("*", '')}',
+          tag: plant.name.replaceAll("*", ''),
           child: Image.file(
             File(originalImagePath),
             fit: BoxFit.cover,

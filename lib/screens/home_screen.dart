@@ -10,9 +10,9 @@ import 'package:plant_snap/widgets/plant_details_screen.dart';
 class HomeScreen extends StatefulWidget {
   final PlantIdentificationService plantService;
   const HomeScreen({
-    Key? key,
+    super.key,
     required this.plantService,
-  }) : super(key: key);
+  });
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -47,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _identifyPlant(String imagePath) async {
     try {
       final identifiedPlant = await widget.plantService.identifyPlant(File(imagePath));
+
       setState(() {
         _identifiedPlant = identifiedPlant;
         _isLoading = false;
@@ -107,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Icon(
           Icons.local_florist,
           size: 100,
-          color: Colors.green.shade300,
+          color: Colors.green.shade600
         ),
         const SizedBox(height: 20),
         Text(
