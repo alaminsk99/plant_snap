@@ -50,20 +50,22 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAJD_8QmBVxz_YsFG2CFpOQWTJDFIKebVY',
-    appId: '1:334219983132:web:611188aebe859bb5aaa2d9',
-    messagingSenderId: '334219983132',
-    projectId: 'plantsnap12333',
-    authDomain: 'plantsnap12333.firebaseapp.com',
-    storageBucket: 'plantsnap12333.firebasestorage.app',
-    measurementId: 'G-NW58X2MPQJ',
+    apiKey: 'AIzaSyBvnVXLMMFDl-wcHNtuB3FxFMsvneHkDDs',
+    appId: '1:678106466094:web:f4ba3d6281fcff65519cbf',
+    messagingSenderId: '678106466094',
+    projectId: 'practice-d42f6',
+    authDomain: 'practice-d42f6.firebaseapp.com',
+    databaseURL: 'https://practice-d42f6-default-rtdb.firebaseio.com',
+    storageBucket: 'practice-d42f6.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAXIAwnfNXlRfY0E6wQTcEU1oz5C6mdHiA',
-    appId: '1:334219983132:android:caf6750c675e660eaaa2d9',
-    messagingSenderId: '334219983132',
-    projectId: 'plantsnap12333',
-    storageBucket: 'plantsnap12333.firebasestorage.app',
+    apiKey: 'AIzaSyCicDdx16qmrn0-XKRMTjcSf_MfyGh486U',
+    appId: '1:678106466094:android:cc8456419e1f62f7519cbf',
+    messagingSenderId: '678106466094',
+    projectId: 'practice-d42f6',
+    databaseURL: 'https://practice-d42f6-default-rtdb.firebaseio.com',
+    storageBucket: 'practice-d42f6.appspot.com',
   );
+
 }

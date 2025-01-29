@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "334219983132",
-    "project_id": "plantsnap12333",
-    "storage_bucket": "plantsnap12333.firebasestorage.app"
+    "project_number": "678106466094",
+    "firebase_url": "https://practice-d42f6-default-rtdb.firebaseio.com",
+    "project_id": "practice-d42f6",
+    "storage_bucket": "practice-d42f6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:334219983132:android:caf6750c675e660eaaa2d9",
+        "mobilesdk_app_id": "1:678106466094:android:cc8456419e1f62f7519cbf",
         "android_client_info": {
           "package_name": "com.ariact.plant_snap"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAXIAwnfNXlRfY0E6wQTcEU1oz5C6mdHiA"
+          "current_key": "AIzaSyCicDdx16qmrn0-XKRMTjcSf_MfyGh486U"
         }
       ],
       "services": {

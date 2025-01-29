@@ -3,7 +3,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../models/plant_model.dart';
+import 'package:plant_snap/models/plant_model.dart';
+import 'package:plant_snap/utils/constants/colors.dart';
+
 
 class PlantDetailsScreen extends StatelessWidget {
   final PlantModel plant;
@@ -31,35 +33,28 @@ class PlantDetailsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Plant Name and Scientific Name
-                  _buildPlantNameSection(),
+                  _buildPlantNameSection(context),
 
                   // Divider
-                  Divider(color: Colors.green.shade200, thickness: 1.5),
+                  Divider(color: Theme.of(context).colorScheme.primary.withOpacity(0.5), thickness: 1.5),
 
                   // Description Section
-                  _buildSectionTitle('Description'),
+                  _buildSectionTitle('Description',context),
                   Text(
                     plant.description.replaceAll("*", ''),
-                    style: GoogleFonts.roboto(
-                      fontSize: 16,
-                      color: Colors.black87,
-                    ),
+                    style: Theme.of(context).textTheme.bodyMedium
                   ),
 
                   // Care Instructions
                   const SizedBox(height: 16),
-                  _buildSectionTitle('Care Instructions'),
-                  ..._buildCareInstructionList(),
+                  _buildSectionTitle('Care Instructions',context),
+                  ..._buildCareInstructionList(context),
                   const SizedBox(height: 16),
                   if (plant.plantFamily != null) ...[
-                    _buildSectionTitle('Plant Family'),
+                    _buildSectionTitle('Plant Family',context),
                     Text(
                       plant.plantFamily!.replaceAll("*", ""),
-                      style: GoogleFonts.roboto(
-                        fontSize: 16,
-                        fontStyle: FontStyle.italic,
-                        color: Colors.green.shade600,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],
                 ],
@@ -78,13 +73,13 @@ class PlantDetailsScreen extends StatelessWidget {
       floating: false,
       pinned: true,
       iconTheme: const IconThemeData(
-        color: Colors.white,
+        color: PColors.secondary,
       ),
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
           plant.name.replaceAll("*", ''),
           style: GoogleFonts.montserrat(
-            color: Colors.white,
+            color: PColors.secondary,
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
@@ -97,23 +92,23 @@ class PlantDetailsScreen extends StatelessWidget {
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) {
               return Container(
-                color: Colors.green.shade100,
+                color: Theme.of(context).colorScheme.surfaceVariant,
                 child: Icon(
                   Icons.local_florist,
                   size: 100,
-                  color: Colors.green.shade400,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               );
             },
           ),
         ),
       ),
-      backgroundColor: Colors.green.shade700,
+      backgroundColor: Theme.of(context).colorScheme.primary,
     );
   }
 
   // Plant Name and Scientific Name Section
-  Widget _buildPlantNameSection() {
+  Widget _buildPlantNameSection(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -122,7 +117,7 @@ class PlantDetailsScreen extends StatelessWidget {
           style: GoogleFonts.montserrat(
             fontSize: 24,
             fontWeight: FontWeight.bold,
-            color: Colors.green.shade800,
+            color: Theme.of(context).colorScheme.primary,
           ),
         ),
         Text(
@@ -130,7 +125,7 @@ class PlantDetailsScreen extends StatelessWidget {
           style: GoogleFonts.roboto(
             fontSize: 16,
             fontStyle: FontStyle.italic,
-            color: Colors.green.shade600,
+            color: Theme.of(context).colorScheme.primary.withOpacity(0.8),
           ),
         ),
       ],
@@ -138,7 +133,7 @@ class PlantDetailsScreen extends StatelessWidget {
   }
 
   // Section Title Helper Method
-  Widget _buildSectionTitle(String title) {
+  Widget _buildSectionTitle(String title,BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Text(
@@ -146,14 +141,14 @@ class PlantDetailsScreen extends StatelessWidget {
         style: GoogleFonts.montserrat(
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: Colors.green.shade700,
+          color: Theme.of(context).colorScheme.primary,
         ),
       ),
     );
   }
 
   // Care Instructions List
-  List<Widget> _buildCareInstructionList() {
+  List<Widget> _buildCareInstructionList(BuildContext context) {
     return plant.careInstructions.map((instruction) {
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -162,17 +157,14 @@ class PlantDetailsScreen extends StatelessWidget {
           children: [
             Icon(
               Icons.check_circle_outline,
-              color: Colors.green.shade600,
+              color: Theme.of(context).colorScheme.primary,
               size: 20,
             ),
             const SizedBox(width: 10),
             Expanded(
               child: Text(
                 instruction.replaceAll("*", ''),
-                style: GoogleFonts.roboto(
-                  fontSize: 16,
-                  color: Colors.black87,
-                ),
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
           ],

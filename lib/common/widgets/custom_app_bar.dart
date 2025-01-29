@@ -10,10 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: Text(
         'Plant Identifier',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,fontSize: 30,
-          color: Colors.green.shade800,
-        ),
+        style: Theme.of(context).textTheme.headlineLarge!.copyWith(color:Theme.of(context).colorScheme.primary ),
       ),
       backgroundColor: Colors.transparent,
       elevation: 0,
