@@ -1,19 +1,35 @@
 // lib/widgets/custom_app_bar.dart
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar(
+      {super.key, required this.title,
+        this.backgroundColor = Colors.transparent,
+        this.isCenterTitle = true,
+        this.isLeadingIcon = false,
+        this.textColorTheme, this.iconThemeData,
+      });
 
+  final String title;
+  final Color backgroundColor;
+  final IconThemeData? iconThemeData;
+  final bool isCenterTitle;
+  final TextStyle? textColorTheme;
+  final bool isLeadingIcon;
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      centerTitle: true,
+      centerTitle: isCenterTitle,
+      automaticallyImplyLeading: isLeadingIcon,
       title: Text(
-        'Plant Identifier',
-        style: Theme.of(context).textTheme.headlineLarge!.copyWith(color:Theme.of(context).colorScheme.primary ),
+        title,
+        style: textColorTheme  ?? Theme.of(context).textTheme.headlineLarge!.copyWith(color:Theme.of(context).colorScheme.primary),
       ),
-      backgroundColor: Colors.transparent,
+      backgroundColor: backgroundColor,
       elevation: 0,
+      iconTheme: iconThemeData,
+
     );
   }
 

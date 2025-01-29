@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:plant_snap/utils/constants/colors.dart';
 import 'package:plant_snap/utils/theme/custom_themes/app_bar_theme.dart';
+import 'package:plant_snap/utils/theme/custom_themes/elevated_button_theme.dart';
+import 'package:plant_snap/utils/theme/custom_themes/outline_button_theme.dart';
 import 'package:plant_snap/utils/theme/custom_themes/text_field_theme.dart';
 import 'package:plant_snap/utils/theme/custom_themes/text_theme.dart';
 
@@ -25,6 +27,8 @@ class PAppTheme{
       brightness: Brightness.light,
     ).copyWith(surfaceTint: PColors.primary.withOpacity(0.1),),
     inputDecorationTheme: PTextFieldTheme.lightInputDecorationTheme,
+    elevatedButtonTheme: PElevatedButtonTheme.lightElevatedButtonTheme,
+    outlinedButtonTheme: POutlinedButtonTheme.lightOutlinedButtonTheme,
 
 
 
@@ -43,6 +47,9 @@ class PAppTheme{
     ).copyWith(surfaceTint: PColors.primary.withOpacity(0.1),),
     inputDecorationTheme: PTextFieldTheme.darkInputDecorationTheme,
     appBarTheme: PAppBarTheme.darkAppBarTheme,
+    elevatedButtonTheme: PElevatedButtonTheme.darkElevatedButtonTheme,
+    outlinedButtonTheme: POutlinedButtonTheme.darkOutlinedButtonTheme,
+
   );
 
 }

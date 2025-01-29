@@ -1,13 +1,17 @@
 // lib/screens/home_screen.dart
 import 'dart:io';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_snap/common/widgets/custom_app_bar.dart';
+import 'package:plant_snap/common/widgets/history_section.dart';
 import 'package:plant_snap/common/widgets/plant_details_screen.dart';
+import 'package:plant_snap/data/services/plant_identification_service.dart';
 import 'package:plant_snap/models/plant_model.dart';
+import 'package:plant_snap/screens/settings/settings.dart';
 import 'package:plant_snap/screens/widgets/clickble_icon.dart';
-import 'package:plant_snap/services/plant_identification_service.dart';
+
 import 'package:plant_snap/utils/constants/colors.dart';
 import 'package:plant_snap/utils/constants/sizes.dart';
 import 'package:plant_snap/utils/constants/text_strings.dart';
@@ -91,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final height = PHelperFunction.screenHeight();
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(title: PTextStrings.appName,),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -127,9 +131,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         // Clock Icon with modern styling
-                        ClickableIcon(onTap: (){},icon: Iconsax.clock),
+                        ClickableIcon(onTap: ()=>Get.to(()=> HistorySection()),icon: Iconsax.clock),
                         // Settings Icon with modern styling
-                        ClickableIcon(onTap: (){}, icon: Iconsax.setting),
+                        ClickableIcon(onTap: ()=>Get.to(()=> const SettingsScreen()), icon: Iconsax.setting),
                       ],
                     ),
                   ),

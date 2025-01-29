@@ -1,54 +1,39 @@
 // lib/main.dart
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:plant_snap/app.dart';
+import 'package:plant_snap/controllers/home_controller.dart';
+import 'package:plant_snap/data/repositories/authentication/authentication_repository.dart';
+import 'package:plant_snap/data/services/plant_identification_service.dart';
 import 'package:plant_snap/firebase_options.dart';
-import 'package:plant_snap/screens/auth/login_screen.dart';
+import 'package:plant_snap/screens/auth/login/login_screen.dart';
 import 'package:plant_snap/screens/home_screen.dart';
-import 'package:plant_snap/services/auth_service.dart';
-import 'package:plant_snap/services/plant_identification_service.dart';
+
 import 'package:plant_snap/utils/theme/theme.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  /// Widgets Binding
+  final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  /// GetX Local Storage
+  await GetStorage.init();
+  /// Await Native Splash
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+
+  /// Initialize Firebase & Authentication
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,).then(
+      (FirebaseApp value)=> Get.put(AuthenticationRepository()));
 
   final plantService = PlantIdentificationService(
     apiKey: 'AIzaSyCKdQncVLpQrsVWWNLMBR5hG8qDbHpTtXY',
   );
 
-  Get.put(AuthService());
+  Get.put(HomeController());
   Get.put(plantService);
 
-  runApp(PlantIdentifierApp(plantService: plantService));
-}
-
-class PlantIdentifierApp extends StatelessWidget {
-  final PlantIdentificationService plantService;
-
-  const PlantIdentifierApp({
-    super.key,
-    required this.plantService,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Plant Identifier',
-      debugShowCheckedModeBanner: false,
-      theme: PAppTheme.lightTheme,
-      darkTheme: PAppTheme.darkTheme,
-      home:  Obx(() {
-        final user = Get.find<AuthService>().user.value;
-        if (user == null) {
-          return LoginScreen();
-        }
-        return HomeScreen(plantService: plantService);
-      }),
-    );
-  }
-
+  runApp(App(plantService: plantService));
 }
