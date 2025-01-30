@@ -8,11 +8,9 @@ import 'package:plant_snap/utils/theme/theme.dart';
 
 
 class App extends StatelessWidget {
-  final PlantIdentificationService plantService;
 
   const App({
     super.key,
-    required this.plantService,
   });
 
   @override

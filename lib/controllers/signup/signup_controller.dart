@@ -40,7 +40,6 @@ class SignupController extends GetxController{
       final isConnected = await NetworkManager.instance.isConnected();
       if(!isConnected) {
         // Remove Loader
-        PFullScreenLoader.stopLoading();
         return;
       }
 
@@ -49,7 +48,6 @@ class SignupController extends GetxController{
 
       if(!signupFormKey.currentState!.validate()){
         // Remove Loader
-        PFullScreenLoader.stopLoading();
         return;
       }
 
@@ -88,7 +86,7 @@ class SignupController extends GetxController{
       PLoaders.successSnackBar(title: 'Congratulation', message: 'Your account has been created! Verify email to continue.');
 
       // Move to verify Email Screen
-      await Get.to(()=> const VerifyEmailScreen());
+      await Get.to(()=>  VerifyEmailScreen(email: email.text.trim(),));
 
     }catch (e){
       PFullScreenLoader.stopLoading();
@@ -96,7 +94,7 @@ class SignupController extends GetxController{
       PLoaders.errorSnackBar(title: "Oh Snap!",message: e.toString());
     }finally{
       // remove Loader
-      PFullScreenLoader.stopLoading();
+      // PFullScreenLoader.stopLoading();
     }
 
   }

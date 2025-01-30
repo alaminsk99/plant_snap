@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:plant_snap/common/styles/spacing_styles.dart';
 import 'package:plant_snap/utils/constants/sizes.dart';
 import 'package:plant_snap/utils/constants/text_strings.dart';
@@ -20,11 +21,8 @@ class SuccessScreen extends StatelessWidget {
           padding: PSpacingStyle.paddingWithAppBarHeight * 2,
           child: Column(
             children: [
-              /// Image
-              Image(
-                image:  AssetImage(image),
-                width: PHelperFunction.screenWidth() * 0.6,
-              ),
+              /// Lottie Image
+              Lottie.asset(image,width: PHelperFunction.screenWidth() * 0.6,),
               const SizedBox(height: PSizes.spaceBtwSection),
 
               /// Title & SubTitle

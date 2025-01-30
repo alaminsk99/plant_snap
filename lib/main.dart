@@ -29,13 +29,9 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,).then(
       (FirebaseApp value)=> Get.put(AuthenticationRepository()));
 
-  final plantService = PlantIdentificationService(
-    apiKey: 'AIzaSyCKdQncVLpQrsVWWNLMBR5hG8qDbHpTtXY',
-  );
 
   Get.put(AuthService());
   Get.put(HomeController());
-  Get.put(plantService);
 
-  runApp(App(plantService: plantService));
+  runApp(const App());
 }
