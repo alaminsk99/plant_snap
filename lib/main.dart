@@ -7,6 +7,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:plant_snap/app.dart';
 import 'package:plant_snap/controllers/home_controller.dart';
 import 'package:plant_snap/data/repositories/authentication/authentication_repository.dart';
+import 'package:plant_snap/data/services/auth_service.dart';
 import 'package:plant_snap/data/services/plant_identification_service.dart';
 import 'package:plant_snap/firebase_options.dart';
 import 'package:plant_snap/screens/auth/login/login_screen.dart';
@@ -32,6 +33,7 @@ void main() async {
     apiKey: 'AIzaSyCKdQncVLpQrsVWWNLMBR5hG8qDbHpTtXY',
   );
 
+  Get.put(AuthService());
   Get.put(HomeController());
   Get.put(plantService);
 

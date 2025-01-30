@@ -26,7 +26,7 @@ class App extends StatelessWidget {
 
       /// Show loader or Circular Progress Indicator meanwhile Authenticate Repository is deciding to show relevant screen
       home: Scaffold(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         body: const Center(child: CircularProgressIndicator(color: PColors.secondary,),),
       ),
     );

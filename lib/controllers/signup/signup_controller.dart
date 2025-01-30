@@ -2,7 +2,11 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:plant_snap/common/widgets/loaders/loaders.dart';
+import 'package:plant_snap/data/repositories/authentication/authentication_repository.dart';
+import 'package:plant_snap/data/repositories/user/user_repository.dart';
 import 'package:plant_snap/data/services/network_manager.dart';
+import 'package:plant_snap/models/user_model.dart';
+import 'package:plant_snap/screens/auth/signup/verify_email.dart';
 import 'package:plant_snap/utils/constants/image_strings.dart';
 import 'package:plant_snap/utils/popups/full_screen_loader.dart';
 
@@ -23,7 +27,7 @@ class SignupController extends GetxController{
 
   /// Signup
 
-  Future<void> signup()async{
+  void signup()async{
 
     try{
 
@@ -34,12 +38,20 @@ class SignupController extends GetxController{
       // Check Internet Connectivity
 
       final isConnected = await NetworkManager.instance.isConnected();
-      if(!isConnected) return;
+      if(!isConnected) {
+        // Remove Loader
+        PFullScreenLoader.stopLoading();
+        return;
+      }
 
 
       // Form Validation
 
-      if(!signupFormKey.currentState!.validate()) return;
+      if(!signupFormKey.currentState!.validate()){
+        // Remove Loader
+        PFullScreenLoader.stopLoading();
+        return;
+      }
 
 
 
@@ -53,14 +65,33 @@ class SignupController extends GetxController{
       }
       // register user in the Firebase Authentication & Save user data in the firebase
 
+      final userCredential = await AuthenticationRepository.instance.registerEmailAndPassword(email.text.trim(), password.text.trim());
+
       // Save Authenticated user data in the firebase firestore
 
+      final newUser = UserModel(
+        id: userCredential.user!.uid,
+        firstName: firstName.text.trim(),
+        lastName: lastName.text.trim(),
+        username: username.text.trim(),
+        email: email.text.trim(),
+        profilePicture: '',
+      );
+
+      final userRepository = Get.put(UserRepository());
+      await userRepository.saveDataRecord(newUser);
+
+      // Remove the loader
+      PFullScreenLoader.stopLoading();
+
       // Show Success Message
+      PLoaders.successSnackBar(title: 'Congratulation', message: 'Your account has been created! Verify email to continue.');
 
       // Move to verify Email Screen
-
+      await Get.to(()=> const VerifyEmailScreen());
 
     }catch (e){
+      PFullScreenLoader.stopLoading();
       // Show some error
       PLoaders.errorSnackBar(title: "Oh Snap!",message: e.toString());
     }finally{
@@ -69,5 +100,8 @@ class SignupController extends GetxController{
     }
 
   }
+
+
+
 
 }

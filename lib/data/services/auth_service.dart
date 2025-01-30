@@ -32,14 +32,14 @@ class AuthService extends GetxController {
         password: password,
       );
 
-      await _firestore.collection('users').doc(credential.user!.uid).set(
-        UserModel(
-          uid: credential.user!.uid,
-          name: name,
-          email: email,
-          createdAt: DateTime.now(),
-        ).toJson(),
-      );
+      // await _firestore.collection('users').doc(credential.user!.uid).set(
+      //   UserModel(
+      //     uid: credential.user!.uid,
+      //     name: name,
+      //     email: email,
+      //     createdAt: DateTime.now(),
+      //   ).toJson(),
+      // );
 
       return credential;
     } catch (e) {

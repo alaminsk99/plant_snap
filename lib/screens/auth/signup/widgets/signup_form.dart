@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:plant_snap/controllers/signup/signup_controller.dart';
+import 'package:plant_snap/screens/auth/signup/verify_email.dart';
 import 'package:plant_snap/screens/auth/signup/widgets/terms_conditions_checkbox.dart';
 import 'package:plant_snap/utils/constants/sizes.dart';
 import 'package:plant_snap/utils/constants/text_strings.dart';

@@ -1,6 +1,24 @@
 
 class PTextStrings{
 
+
+  /// Onboarding
+   static const String onboardingTitle = 'Your Smart Plant Identifier';
+   static const String onboardingSubTitle = 'Snap a photo and instantly identify plants, flowers, and trees around you!';
+
+   /// VerifyScreen
+   static const String conformEmail = "Verify your email address!";
+   static const String conformEmailSubTitle = "You're Almost There! Verify Your Email to Start Snapping, Identifying, and Exploring the Wonderful World of Plants!";
+   static const String resendEmail = "Resend Email";
+   static const String pContinue = "Continue";
+   static const String resendEmailIn = "Resend email in";
+   static const String submit = "Submit";
+   static const String done = "Done";
+   static const String emailNotReceivedMessage = "Didn’t get the email? Check your junk/spam or resend it.";
+   static const String yourAccountCreatedTitle = "Your account successfully created!";
+   static const String yourAccountCreatedSubTitle = "Welcome to Your Ultimate Plant Companion: Your Account is Created – Start Snapping, Identifying, and Growing with PlantSnap!";
+
+
   /// app Bar
   static const String homeScreenTitleText = "Plant Identifier";
   static const String appName = "PlantSnap";
@@ -40,7 +58,7 @@ class PTextStrings{
   static const String privacyPolicy = "Privacy Policy";
   static const String and = "&";
   static const String termsOfUse = "terms of use";
-  static const String submit = "Submit";
+
 
 
   /// Forget Password
