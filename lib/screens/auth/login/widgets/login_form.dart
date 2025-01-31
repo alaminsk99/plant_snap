@@ -4,7 +4,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:plant_snap/controllers/login/login_controller.dart';
 import 'package:plant_snap/screens/auth/password_configuration/forgot_password_screen.dart';
 import 'package:plant_snap/screens/auth/signup/sign_up_screen.dart';
-import 'package:plant_snap/screens/home_screen.dart';
 import 'package:plant_snap/utils/constants/colors.dart';
 import 'package:plant_snap/utils/constants/sizes.dart';
 import 'package:plant_snap/utils/constants/text_strings.dart';
@@ -70,7 +69,7 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: (){},
+                onPressed: ()=> controller.emailAndPasswordSignIn(),
                 child:  const Text(PTextStrings.signIn,style: TextStyle(color: PColors.secondary, fontSize: 18),),
               ),
             ),

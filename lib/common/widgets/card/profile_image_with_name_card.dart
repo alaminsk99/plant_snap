@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:plant_snap/data/repositories/authentication/authentication_repository.dart';
 import 'package:plant_snap/utils/constants/sizes.dart';
 
 class ProfileImageWithNameCard extends StatelessWidget {
@@ -38,7 +39,7 @@ class ProfileImageWithNameCard extends StatelessWidget {
       ],)),
 
       GestureDetector(
-        onTap: (){},
+        onTap: ()=> AuthenticationRepository.instance.logout(),
         child: Container(
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
@@ -46,7 +47,7 @@ class ProfileImageWithNameCard extends StatelessWidget {
 
           child:  Padding(
             padding: const EdgeInsets.all(PSizes.sm),
-            child: Center(child: Icon(Iconsax.logout,size: 30,color: Theme.of(context).primaryColor,)),
+            child: Center(child: Icon(Iconsax.login,size: 30,color: Theme.of(context).primaryColor,)),
           ),
         ),
       ),

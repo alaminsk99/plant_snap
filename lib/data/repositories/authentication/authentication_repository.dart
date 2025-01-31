@@ -123,7 +123,7 @@ class AuthenticationRepository extends GetxController{
   Future<void> logout()async{
     try{
       await FirebaseAuth.instance.signOut();
-      Get.offAll(()=> LoginScreen());
+      Get.offAll(() =>  LoginScreen());
     }on FirebaseAuthException catch (e){
       throw PFirebaseAuthException(e.code).message;
     }on FirebaseException catch (e){

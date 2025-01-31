@@ -33,40 +33,35 @@ class SignupController extends GetxController{
 
       // Start Loading
       PFullScreenLoader.openLoadingDialog('We are processing your information...', PImageStrings.docerAnimation);
-
-
       // Check Internet Connectivity
-
       final isConnected = await NetworkManager.instance.isConnected();
       if(!isConnected) {
         // Remove Loader
+        PFullScreenLoader.stopLoading();
         return;
       }
-
 
       // Form Validation
-
       if(!signupFormKey.currentState!.validate()){
         // Remove Loader
+        PFullScreenLoader.stopLoading();
         return;
       }
-
-
 
       // Privacy Policy Check
       if(!privacyPolicy.value){
+        PFullScreenLoader.stopLoading();
         PLoaders.warningSnackBar(
           title: 'Accept Privacy Policy',
           message: 'In Oder to create account, you must have to read  and accept the Privacy Policy & Terms of Use.'
         );
         return;
       }
-      // register user in the Firebase Authentication & Save user data in the firebase
 
+      // register user in the Firebase Authentication & Save user data in the firebase
       final userCredential = await AuthenticationRepository.instance.registerEmailAndPassword(email.text.trim(), password.text.trim());
 
       // Save Authenticated user data in the firebase firestore
-
       final newUser = UserModel(
         id: userCredential.user!.uid,
         firstName: firstName.text.trim(),
@@ -89,6 +84,7 @@ class SignupController extends GetxController{
       await Get.to(()=>  VerifyEmailScreen(email: email.text.trim(),));
 
     }catch (e){
+      // remove Loader
       PFullScreenLoader.stopLoading();
       // Show some error
       PLoaders.errorSnackBar(title: "Oh Snap!",message: e.toString());
