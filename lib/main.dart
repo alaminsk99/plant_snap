@@ -8,12 +8,8 @@ import 'package:plant_snap/app.dart';
 import 'package:plant_snap/controllers/home_controller.dart';
 import 'package:plant_snap/data/repositories/authentication/authentication_repository.dart';
 import 'package:plant_snap/data/services/auth_service.dart';
-
 import 'package:plant_snap/firebase_options.dart';
-import 'package:plant_snap/screens/auth/login/login_screen.dart';
-import 'package:plant_snap/screens/home_screen.dart';
 
-import 'package:plant_snap/utils/theme/theme.dart';
 
 void main() async {
   /// Widgets Binding
@@ -29,9 +25,9 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,).then(
       (FirebaseApp value)=> Get.put(AuthenticationRepository()));
 
-
   Get.put(AuthService());
   Get.put(HomeController());
+
 
   runApp(const App());
 }

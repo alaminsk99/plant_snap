@@ -38,19 +38,16 @@ class AuthenticationRepository extends GetxController{
   /// Function to show Relevant Screen
   screenRedirect()async{
     final user = _auth.currentUser;
-    final plantService = PlantIdentificationService(
-      apiKey: 'AIzaSyCKdQncVLpQrsVWWNLMBR5hG8qDbHpTtXY',
-    );
     if(user != null){
       if(user.emailVerified){
-        Get.offAll(()=> HomeScreen(plantService: plantService));
+        Get.offAll(()=> const HomeScreen());
       }else{
         Get.offAll(()=>  VerifyEmailScreen(email: _auth.currentUser?.email,));
       }
     }else{
       // Local Storage
       deviceStorage.writeIfNull('IsFirstTime', true);
-      deviceStorage.read('IsFirstTime') != true ? Get.offAll(()=>   LoginScreen()): Get.offAll(const OnboardingScreen());
+      deviceStorage.read('IsFirstTime') != true ? Get.offAll(()=>   const LoginScreen()): Get.offAll(const OnboardingScreen());
     }
 
 

@@ -41,7 +41,7 @@ class PLoaders{
     );
   }
 
-  static errorSnackBar ({required title,message = ''}){
+  static errorSnackBar ( {required title,message = ''}){
     Get.snackbar(
         title,
         message,

@@ -13,6 +13,7 @@ import 'package:plant_snap/utils/exceptions/p_platform_exception.dart';
 class PlantSnapRepository extends GetxController{
   static PlantSnapRepository get instance => Get.find();
 
+  /// Variable
   final _db = FirebaseFirestore.instance;
 
 

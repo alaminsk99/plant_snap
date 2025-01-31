@@ -3,12 +3,17 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:plant_snap/models/plant_model.dart';
 
 import 'api_config.dart';
 
-class PlantIdentificationService {
+class PlantIdentificationService extends GetxController {
+  static PlantIdentificationService get instance => Get.find();
+
+
+
   final String apiKey;
   final http.Client _client;
 
