@@ -35,5 +35,24 @@ class PlantSnapRepository extends GetxController{
     }
   }
 
+  /// Fetch the plantSnap data form the firebase
+  Future<List<PlantModel>> fetchDataOfPlantsHistory()async{
+    try{
+     final snapshot = await _db.collection('PlantSnap').doc(AuthenticationRepository.instance.authUser?.uid).collection('History').get();
+     return snapshot.docs.map((map)=>PlantModel.fromJson(map.data())).toList();
+    }on FirebaseAuthException catch (e){
+      throw PFirebaseAuthException(e.code).message;
+    }on FirebaseException catch (e){
+      throw PFirebaseException(e.code).message;
+    }on FormatException catch (_){
+      throw const PFormatException();
+    }on PlatformException catch (e){
+      throw PPlatformException(e.code).message;
+    }catch(e){
+      throw 'Something went wrong. Please try again.';
+    }
+  }
+
+
 
 }

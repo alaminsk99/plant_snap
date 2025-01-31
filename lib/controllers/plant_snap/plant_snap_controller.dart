@@ -19,7 +19,7 @@ class PlantSnapController extends GetxController {
 
   /// Variable
   final plantService = PlantIdentificationService.instance;
-  final repository = Get.put(PlantSnapRepository());
+  final repository = PlantSnapRepository.instance;
 
   /// Reactive state variables
   final Rx<File?> selectedImage = Rx<File?>(null);
