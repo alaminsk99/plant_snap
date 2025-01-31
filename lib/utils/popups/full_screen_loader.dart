@@ -20,7 +20,7 @@ class PFullScreenLoader{
 
   static void openLoadingDialog(String text, String animation){
     showDialog(
-        context: Get.context!,
+        context: Get.overlayContext!,
         barrierDismissible: false,
         builder: (_)=> PopScope(
           canPop: false,
@@ -43,7 +43,8 @@ class PFullScreenLoader{
   /// Stop the currently open loading dialog
   /// This method does not return anythings
   static stopLoading(){
-    Navigator.of(Get.context!).pop();
+    // Navigator.of(Get.overlayContext!).pop();
+    Get.back();
   }
 
 

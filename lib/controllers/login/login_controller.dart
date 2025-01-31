@@ -15,12 +15,13 @@ class LoginController extends GetxController{
   final email = TextEditingController();
   final password = TextEditingController();
   final localStorage = GetStorage();
-  GlobalKey<FormState> loginFormKey = GlobalKey();
+  GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
 
 
 
   /// --- Email and Password SignIn
   Future<void> emailAndPasswordSignIn()async{
+
     try{
       // Start Loading
       PFullScreenLoader.openLoadingDialog("Logging you in...", PImageStrings.docerAnimation);
@@ -28,15 +29,18 @@ class LoginController extends GetxController{
       // Check Internet  Connectivity
       final isConnected  = await NetworkManager.instance.isConnected();
       if(!isConnected){
-        PFullScreenLoader.stopLoading();
+        //PFullScreenLoader.stopLoading();
         return;
       }
 
+
       // Form Validator
       if(!loginFormKey.currentState!.validate()){
-        PFullScreenLoader.stopLoading();
+        //PFullScreenLoader.stopLoading();
         return;
       }
+
+      //debugPrint('IS Click');
 
       //Save Data if Remember Me is Selected
       if(rememberMe.value){
@@ -44,14 +48,16 @@ class LoginController extends GetxController{
         localStorage.write("REMEMBER_ME_PASSWORD", password.text.trim());
       }
 
+      final auth = AuthenticationRepository.instance;
       //Login user using email and password
-      final userCredential  = await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim(),);
+      await auth.loginWithEmailAndPassword(email.text.trim(), password.text.trim(),);
+
 
       //Stop the Loader
-      PFullScreenLoader.stopLoading();
+      //PFullScreenLoader.stopLoading();
 
       //Redirect
-      AuthenticationRepository.instance.screenRedirect();
+      auth.screenRedirect();
 
     }catch (e){
       // Stop loader

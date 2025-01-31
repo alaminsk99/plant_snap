@@ -16,7 +16,6 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(LoginController());
-    final dark = PHelperFunction.isDarkMode(context);
     return Form(
       key: controller.loginFormKey,
       child: Padding(
@@ -41,7 +40,10 @@ class LoginForm extends StatelessWidget {
                     prefixIcon: const Icon(Iconsax.password_check),
                     labelText: PTextStrings.password,
                     suffixIcon: IconButton(
-                      onPressed: ()=> controller.hidePassword.value = !controller.hidePassword.value, icon:controller.hidePassword.value? const Icon(Iconsax.eye_slash): const Icon(Iconsax.eye),),
+                    onPressed: () => controller.hidePassword.value = !controller.hidePassword.value,
+                    icon:  Icon(controller.hidePassword.value ? Iconsax.eye_slash: Iconsax.eye),
+
+                  ),
                 ),
               ),
             ),
@@ -60,7 +62,7 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
                 /// Forgot Password
-                TextButton(onPressed: () => Get.to(()=>  ForgotPasswordScreen()), child: const Text(PTextStrings.forgetPassword)),
+                TextButton(onPressed: () => Get.to(()=>  const ForgotPasswordScreen()), child: const Text(PTextStrings.forgetPassword)),
               ],
             ),
             const SizedBox(height: PSizes.spaceBtwSection),

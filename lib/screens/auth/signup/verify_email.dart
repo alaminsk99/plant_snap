@@ -22,7 +22,9 @@ class VerifyEmailScreen extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
-          IconButton(onPressed: ()=> AuthenticationRepository.instance.logout(), icon: const Icon(CupertinoIcons.clear))
+          IconButton(onPressed: (){AuthenticationRepository.instance.logout();
+       }, icon: const Icon(CupertinoIcons.clear)),
+
         ],
       ),
       body: SingleChildScrollView(

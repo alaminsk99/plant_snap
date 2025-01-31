@@ -116,6 +116,21 @@ class AuthenticationRepository extends GetxController{
   }
 
   /// [EmailAuthentication]--Forget Password
+  Future<void> sendPasswordResetEmail(String email)async{
+    try{
+      await _auth.sendPasswordResetEmail(email: email);
+    }on FirebaseAuthException catch (e){
+      throw PFirebaseAuthException(e.code).message;
+    }on FirebaseException catch (e){
+      throw PFirebaseException(e.code).message;
+    }on FormatException catch (_){
+      throw const PFormatException();
+    }on PlatformException catch (e){
+      throw PPlatformException(e.code).message;
+    }catch(e){
+      throw 'Something went wrong. Please Try again.';
+    }
+  }
 
   /*---------------- Delete User------------------------*/
 

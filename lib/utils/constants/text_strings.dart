@@ -48,6 +48,9 @@ class PTextStrings{
   static const String forgetPassword = "Forget password";
   static const String signIn = "Sign In";
   static const String createAccount = "Create an Account";
+  static const String changeYourPasswordTitle = "Password Reset Email Sent";
+  static const String changeYourPasswordSubTitle = "Your account security is our priority! we've sent you a secure link to safely change your password and keep account protected.";
+
 
   /// Sign up Screen
   static const String signupTitle = "Let's Create your account";

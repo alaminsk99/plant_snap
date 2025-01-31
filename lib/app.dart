@@ -21,7 +21,6 @@ class App extends StatelessWidget {
       theme: PAppTheme.lightTheme,
       darkTheme: PAppTheme.darkTheme,
       initialBinding: GeneralBindings(),
-
       /// Show loader or Circular Progress Indicator meanwhile Authenticate Repository is deciding to show relevant screen
       home: Scaffold(
         backgroundColor: Theme.of(context).colorScheme.primary,
