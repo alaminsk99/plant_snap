@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:plant_snap/data/services/auth_service.dart';
+
 import 'package:plant_snap/models/plant_model.dart';
 import 'package:plant_snap/models/scan_history_model.dart';
 

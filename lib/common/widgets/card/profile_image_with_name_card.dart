@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:plant_snap/controllers/user/user_controller.dart';
 import 'package:plant_snap/data/repositories/authentication/authentication_repository.dart';
 import 'package:plant_snap/utils/constants/sizes.dart';
 
@@ -11,8 +13,8 @@ class ProfileImageWithNameCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Row(children: [
-
       Expanded(child: Row(children: [
         Container(
           decoration: BoxDecoration(
@@ -31,9 +33,9 @@ class ProfileImageWithNameCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ///Name
-            Text("Alamin Sk", style: Theme.of(context).textTheme.headlineSmall,),
+            Obx (()=> Text(controller.user.value.fullName, style: Theme.of(context).textTheme.headlineSmall,)),
             const SizedBox(width: PSizes.md/3,),
-            Text("saikha752@gmail.com",style: Theme.of(context).textTheme.bodyMedium,overflow: TextOverflow.ellipsis,),
+            Obx(()=> Text(controller.user.value.email,style: Theme.of(context).textTheme.bodyMedium,overflow: TextOverflow.ellipsis,)),
           ],
         ),
       ],)),

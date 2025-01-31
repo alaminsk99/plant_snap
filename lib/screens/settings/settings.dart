@@ -3,14 +3,9 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:plant_snap/common/widgets/appbar/appbar_for_other_screen.dart';
 import 'package:plant_snap/common/widgets/card/profile_image_with_name_card.dart';
-import 'package:plant_snap/common/widgets/custom_app_bar.dart';
-import 'package:plant_snap/data/repositories/authentication/authentication_repository.dart';
 import 'package:plant_snap/screens/privacy/privacy.dart';
 import 'package:plant_snap/screens/settings/widgets/sub_heading_title.dart';
-import 'package:plant_snap/utils/constants/colors.dart';
 import 'package:plant_snap/utils/constants/sizes.dart';
-import 'package:plant_snap/utils/device/device_utility.dart';
-import 'package:plant_snap/utils/helpers/helper_function.dart';
 
 
 class SettingsScreen extends StatelessWidget {

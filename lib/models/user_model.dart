@@ -66,7 +66,7 @@ class UserModel {
         profilePicture:  data['ProfilePicture'] ?? '',
       );
     }else {
-      throw Exception("Document data is null.");
+      return UserModel.empty();
     }
   }
 

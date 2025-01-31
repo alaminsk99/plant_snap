@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:plant_snap/common/widgets/custom_app_bar.dart';
 import 'package:plant_snap/common/widgets/history_section.dart';
 import 'package:plant_snap/common/widgets/plant_details_screen.dart';
+import 'package:plant_snap/controllers/user/user_controller.dart';
 import 'package:plant_snap/data/services/plant_identification_service.dart';
 import 'package:plant_snap/models/plant_model.dart';
 import 'package:plant_snap/screens/settings/settings.dart';
@@ -94,6 +95,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final height = PHelperFunction.screenHeight();
+    final controller = Get.put(UserController());
+    debugPrint(controller.user.value.fullName);
     return Scaffold(
       appBar: const CustomAppBar(title: PTextStrings.appName,),
       body: SafeArea(
