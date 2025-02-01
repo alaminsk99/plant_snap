@@ -8,7 +8,7 @@ class UserController extends GetxController{
   static UserController get instance => Get.find();
 
   Rx<UserModel> user = UserModel.empty().obs;
-  final userRepository = Get.put(UserRepository());
+  final userRepository = UserRepository.instance;
 
   @override
   void onInit() {

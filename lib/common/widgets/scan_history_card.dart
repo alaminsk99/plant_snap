@@ -1,5 +1,6 @@
 // lib/widgets/scan_history_card.dart
 import 'package:flutter/material.dart';
+import 'package:plant_snap/utils/constants/colors.dart';
 import 'package:plant_snap/utils/constants/sizes.dart';
 
 
@@ -13,9 +14,9 @@ class ScanHistoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4,
+      elevation: 1,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(PSizes.sm),
+        borderRadius: BorderRadius.circular(PSizes.md),
       ),
       child: InkWell(
         onTap: (){},

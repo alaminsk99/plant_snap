@@ -6,6 +6,7 @@ import 'package:plant_snap/common/widgets/success_screen/success_screen.dart';
 import 'package:plant_snap/controllers/signup/verify_email_controller.dart';
 import 'package:plant_snap/data/repositories/authentication/authentication_repository.dart';
 import 'package:plant_snap/screens/auth/login/login_screen.dart';
+import 'package:plant_snap/utils/constants/colors.dart';
 import 'package:plant_snap/utils/constants/image_strings.dart';
 import 'package:plant_snap/utils/constants/sizes.dart';
 import 'package:plant_snap/utils/constants/text_strings.dart';
@@ -18,13 +19,14 @@ class VerifyEmailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(VerifyEmailController());
+    final dark = PHelperFunction.isDarkMode(context);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
-          IconButton(onPressed: (){AuthenticationRepository.instance.logout();
-       }, icon: const Icon(CupertinoIcons.clear)),
 
+          IconButton(onPressed: ()=> AuthenticationRepository.instance.logout(), icon:  Icon(CupertinoIcons.clear, color: dark? PColors.secondary : PColors.black ,)),
+          SizedBox(width: PSizes.md,),
         ],
       ),
       body: SingleChildScrollView(
