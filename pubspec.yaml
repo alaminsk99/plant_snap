@@ -63,6 +63,7 @@ flutter:
 
   #images
   assets:
+    - .env
     - assets/images/
     - assets/logos/
     - assets/animation/

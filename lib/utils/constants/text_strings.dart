@@ -21,7 +21,7 @@ class PTextStrings{
 
   /// app Bar
   static const String homeScreenTitleText = "Plant Identifier";
-  static const String appName = "PlantSnap";
+  static const String appName = "Plant Snap";
   static const String settingsScreenAppBarText = "Settings";
   static const String aboutUsScreenAppBarText = "About us";
   static const String historyScreenAppBarText = "History";
@@ -68,4 +68,18 @@ class PTextStrings{
   static const String forgetScreenTitle = "Don't worry sometimes people can forget too, enter your email and we will send you a password rest link.";
 
 
+
+  /// about us screen
+
+  static const String aboutUs = "About us";
+  static const String currentVersion = "Current Version";
+  static const String aboutPlantSnapTitle = "About Plant Snap:";
+
+
+  /// Settings Screen
+
+   static const String settings = "Settings";
+   static const String appSettings = "App Settings";
+   static const String profile = "Profile";
+   static const String swtToDakMod = "Switch to dark mode";
 }

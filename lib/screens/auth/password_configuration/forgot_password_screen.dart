@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:plant_snap/common/widgets/custom_app_bar.dart';
-import 'package:plant_snap/common/widgets/custom_text_field.dart';
 import 'package:plant_snap/controllers/forget_password/forget_password_controller.dart';
-import 'package:plant_snap/data/services/auth_service.dart';
 import 'package:plant_snap/utils/constants/colors.dart';
 import 'package:plant_snap/utils/constants/sizes.dart';
 import 'package:plant_snap/utils/constants/text_strings.dart';

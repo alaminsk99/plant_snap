@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:plant_snap/controllers/user/user_controller.dart';
 import 'package:plant_snap/data/repositories/authentication/authentication_repository.dart';
+import 'package:plant_snap/screens/settings/widgets/logout_dialog.dart';
 import 'package:plant_snap/utils/constants/sizes.dart';
 
 class ProfileImageWithNameCard extends StatelessWidget {
@@ -41,7 +42,10 @@ class ProfileImageWithNameCard extends StatelessWidget {
       ],)),
 
       GestureDetector(
-        onTap: ()=> AuthenticationRepository.instance.logout(),
+        onTap: ()=> showDialog(
+          context: context,
+          builder: (BuildContext context) => const LogoutDialog(),
+        ),
         child: Container(
           decoration: const BoxDecoration(
             shape: BoxShape.circle,

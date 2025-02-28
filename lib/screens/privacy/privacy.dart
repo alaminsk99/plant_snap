@@ -17,7 +17,7 @@ class AboutUsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: const AppBarForOtherScreen(title: "About us"),
+       appBar: const AppBarForOtherScreen(title: PTextStrings.aboutUs),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(PSizes.md),
@@ -28,7 +28,7 @@ class AboutUsScreen extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const AboutUsSubTitle(title: 'Current Version',),
+                  const AboutUsSubTitle(title:  PTextStrings.currentVersion,),
                   const SizedBox(height: PSizes.xs,),
                   Text('14.8.0',style: Theme.of(context).textTheme.labelMedium),
                 ],
@@ -38,7 +38,7 @@ class AboutUsScreen extends StatelessWidget {
               const SizedBox(height: PSizes.sm,),
 
               /// About PlanSnap
-              const AboutUsSubTitle(title: "About PlantSnap:"),
+              const AboutUsSubTitle(title:  PTextStrings.aboutPlantSnapTitle),
               const SizedBox(height: PSizes.xs,),
               Text.rich(TextSpan(
                 children: [
